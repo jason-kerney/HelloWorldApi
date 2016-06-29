@@ -17,3 +17,29 @@ We will take an existing C# API and write an automated script to compile it, tes
 
 ###Take an existing C# API###
 This will be checked in with the HelloWorld API project and tests. This very simple project will allow us to explore everything we need to do to automate a publish to NuGet.
+
+###Automated Compilation##
+**Tools:**
+ * [Fake](http://fsharp.github.io/FAKE/)
+ * Batch Scripts
+
+ **Build.bat**
+ This file will be used to consistently launch the build process.
+ 
+```dos
+@echo off
+rem Reset the color because build script may mess it up.
+Color 07
+
+rem if no argument was given choose default
+if "%1"=="" (set para="Default") else set para=%1 
+
+cls
+
+rem grab FSharp Make and install it to local directory from Nuget
+".nuget\NuGet.exe" "Install" "FAKE" "-OutputDirectory" "packages" "-ExcludeVersion"
+
+rem call FSharp make with build script
+"packages\FAKE\tools\Fake.exe" build.fsx %para%
+pause
+```
