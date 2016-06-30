@@ -20,26 +20,10 @@ This will be checked in with the HelloWorld API project and tests. This very sim
 
 ###Automated Compilation##
 **Tools:**
+ * [NuGet](https://www.nuget.org/)
  * [Fake](http://fsharp.github.io/FAKE/)
- * Batch Scripts
+ * Batch Script
 
- **Build.bat**
- This file will be used to consistently launch the build process.
- 
-```dos
-@echo off
-rem Reset the color because build script may mess it up.
-Color 07
+**Download NuGet Executable**
+Download the commadline from: [Nuget Reference](https://docs.nuget.org/consume/command-line-reference) or [Direct Download](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) and place it into the project dircetory, under its own directory. I used the name **_.nuget_** for the directory in this project.
 
-rem if no argument was given choose default
-if "%1"=="" (set para="Default") else set para=%1 
-
-cls
-
-rem grab FSharp Make and install it to local directory from Nuget
-".nuget\NuGet.exe" "Install" "FAKE" "-OutputDirectory" "packages" "-ExcludeVersion"
-
-rem call FSharp make with build script
-"packages\FAKE\tools\Fake.exe" build.fsx %para%
-pause
-```
