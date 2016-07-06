@@ -37,3 +37,4 @@ From power shell
 ```powershell
 New-Item .\.nuget -type directory
 ```
+####2. Setup initial batch file####
