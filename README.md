@@ -22,8 +22,18 @@ This will be checked in with the HelloWorld API project and tests. This very sim
 **Tools:**
  * [NuGet](https://www.nuget.org/)
  * [Fake](http://fsharp.github.io/FAKE/)
+ * PowerShell
  * Batch Script
 
-**Download NuGet Executable**
-Download the commadline from: [Nuget Reference](https://docs.nuget.org/consume/command-line-reference) or [Direct Download](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) and place it into the project dircetory, under its own directory. I used the name **_.nuget_** for the directory in this project.
+####1. Download NuGet Executable####
+Download the commadline from: [The Nuget Reference](https://docs.nuget.org/consume/command-line-reference) or the [Direct Download](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) and place it into the project dircetory, under its own directory. I used the name **_.nuget_** for the directory in this project. 
 
+**Creating the _.nuget_ folder**
+From a command shell
+```dos
+mkdir .nuget
+```
+From power shell
+```powershell
+New-Item .\.nuget -type directory
+```
